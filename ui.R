@@ -3,11 +3,18 @@ library(shiny)
 shinyUI(
     pageWithSidebar(
         
-        headerPanel("Data science FTW!"),
-        sidebarPanel(h3('Sidebar text')),
+        headerPanel("Data Science Capstone Project"),
+        
+        sidebarPanel(
+            h3('INPUT SECTION'),
+            textInput(inputId = "itext", 'Enter your text here:')
+            
+            ),
         
         mainPanel(
-            h3('Main Panel text')
+            h3('NEXT WORD PREDICT'),
+            textOutput('itext')
+            
             )
     )
 )
