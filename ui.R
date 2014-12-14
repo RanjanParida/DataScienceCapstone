@@ -17,7 +17,11 @@ shinyUI(
         
         mainPanel(
             h3('NEXT WORD PREDICTION'),
-            textOutput('itext')
+            textOutput('itext'),
+            
+            
+            h4('Other word options'),
+            verbatimTextOutput('othr')
             
             )
     )

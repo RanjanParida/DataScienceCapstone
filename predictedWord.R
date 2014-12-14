@@ -9,23 +9,18 @@ predictedWord <- function (Source, Text) {
         ## Get the n-gram tokens
         k <- unlist(strsplit(Text, " "));
         n <-length(k);
-        b <- k[n-1:n];
-        cat(length(b));
-        cat(b[1]);
-## DETERMINE THE SOURCE AND LOAD REFERENCE DATA
+        if(n > 1) a <- k[n-1];
+        b <- if(n > 0) k[n];
+
         if (Source=="news") {
-            rs <- news[news$V1==b[1] & news$V2==b[2], ]$V3;
-            cat(rs[1]);
+            rs <- news[news$V1==a & news$V2==b, ]$V3;
             if (length(rs) == 0){
-                rs <- news[news$V1=="UNK" & news$V2==b[2], ]$V3;
-                cat(rs[1]);
+                rs <- news[news$V1=="UNK" & news$V2==b, ]$V3;
             }
             if (length(rs) == 0){
                 rs <- news[news$V1=="UNK" & news$V2=="UNK", ]$V3;
-                cat(rs[1]);
             }
-            
-            as.character(rs[1]);
+            as.character(rs);
         }
         
      

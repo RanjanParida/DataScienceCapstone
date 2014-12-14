@@ -7,8 +7,11 @@ source("loadData.R", local=TRUE)
 shinyServer(
     function(input, output) {
         
-        y <- reactive( predictedWord(input$src, input$itext) )       
-        output$itext <- renderText( y()[1] );
+        y <- reactive(predictedWord(input$src, input$itext))
+                                                
+        output$itext <- renderText(y()[1])
+        output$othr <- renderPrint(y()[-1])
+        
         
     }
 )
