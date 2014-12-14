@@ -3,4 +3,9 @@
 
 cleanText <- function(txt) {
     
+    txt <- iconv(str_trim(txt), "UTF-8", "ASCII", sub="");    
+    txt <- gsub("[[:punct:]]"," ", txt);
+    txt <- gsub("\\d+", "", txt);
+    txt <- tolower(txt[txt != ""]);
+    
 }
