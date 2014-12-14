@@ -7,12 +7,16 @@ shinyUI(
         
         sidebarPanel(
             h3('INPUT SECTION'),
+            selectInput("src", "Text Source:",
+                        list("News" = "news", 
+                             "Blogs" = "blogs", 
+                             "Twitter" = "twitter")),
             textInput(inputId = "itext", 'Enter your text here:')
             
             ),
         
         mainPanel(
-            h3('NEXT WORD PREDICT'),
+            h3('NEXT WORD PREDICTION'),
             textOutput('itext')
             
             )
